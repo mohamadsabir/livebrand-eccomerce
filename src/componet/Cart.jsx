@@ -4,23 +4,22 @@ import { useNavigate } from "react-router-dom";
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
     const [paymentMethod, setPaymentMethod] = useState("COD");
+    const [otpGenerated, setOtpGenerated] = useState(false);
     const [otp, setOtp] = useState("");
-    const [generatedOtp, setGeneratedOtp] = useState(null);
+    const [generatedOtp, setGeneratedOtp] = useState("");  
     const [isOtpVerified, setIsOtpVerified] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-        // Ensure all items have a price and apply a 30% discount by default
         const updatedCart = storedCart.map((item) => {
             const price = typeof item.price === "string"
                 ? parseFloat(item.price.replace(/^\$/, ""))
-                : item.price || 0;  // Ensure price is always a number
-
+                : item.price || 0;
             return {
                 ...item,
                 price,
-                discount: 30, // Apply 30% discount by default
+                discount: 30, 
             };
         });
         setCartItems(updatedCart);
@@ -32,6 +31,7 @@ function Cart() {
         setCartItems(updatedCartItems);
         localStorage.setItem("cart", JSON.stringify(updatedCartItems));
     };
+    
 
     const handleDecrement = (index) => {
         const updatedCartItems = [...cartItems];
@@ -64,29 +64,40 @@ function Cart() {
     const handlePaymentMethodChange = (method) => {
         setPaymentMethod(method);
         if (method === "COD") {
-            generateOtp();
-        } else {
-            setGeneratedOtp(null);
-            setOtp("");
-            setIsOtpVerified(false);
+            setOtpGenerated(false); 
         }
     };
 
-    const generateOtp = () => {
-        const otp = Math.floor(100000 + Math.random() * 900000); // Generate 6-digit OTP
-        setGeneratedOtp(otp);
-        alert(`Your OTP is: ${otp}`); // Simulating sending OTP
+    const generateRandomOtp = () => {
+        const otp = Math.floor(1000 + Math.random() * 9000);
+        return otp.toString();
+    };
+
+    const handleOtpGenerate = () => {
+        const otp = generateRandomOtp();
+        setGeneratedOtp(otp); 
+        setOtp("");
+        setOtpGenerated(true); 
+        alert(`Your OTP is: ${otp}`); 
     };
 
     const handleOtpSubmit = () => {
-        if (otp === generatedOtp.toString()) {
+        if (otp === generatedOtp) { 
             setIsOtpVerified(true);
-            alert("OTP Verified Successfully! Order Placed.");
-            navigate("/order-confirmation");
+            alert("Order Placed Successfully!"); 
+            
+            // Navigate to the order confirmation page with the total items and total price
+            navigate("/order-confirmation", {
+                state: {
+                    totalItems: cartItems.reduce((total, item) => total + item.quantity, 0),
+                    totalPrice: calculateTotal(),
+                }
+            });
         } else {
-            alert("Invalid OTP. Please try again.");
+            alert("Invalid OTP, please try again.");
         }
     };
+    
 
     const handleCheckout = () => {
         if (paymentMethod === "Online") {
@@ -125,10 +136,9 @@ function Cart() {
                                                     ${item.price.toFixed(2)}
                                                 </span>
                                                 <span className="ms-2 text-success">
-                                                    $
-                                                    {(
+                                                    $ {(
                                                         item.price *
-                                                        (1 - 30 / 100) // Apply 30% discount
+                                                        (1 - 30 / 100)
                                                     ).toFixed(2)}
                                                 </span>
                                                 <span className="ms-2 text-danger">
@@ -181,7 +191,6 @@ function Cart() {
                             </div>
                         </div>
                     </div>
-
                     <div className="col-md-5">
                         <div className="card shadow-sm">
                             <div className="card-body">
@@ -207,27 +216,37 @@ function Cart() {
                                         <option value="COD">Cash on Delivery</option>
                                         <option value="Online">Online Payment</option>
                                     </select>
-
-
                                 </div>
 
                                 {paymentMethod === "COD" && (
                                     <div className="mb-3">
-                                        <label className="form-label">Enter OTP:</label>
-                                        <input
-                                            type="text"
-                                            className="form-control custom-focus-input"
-                                            value={otp}
-                                            onChange={(e) => setOtp(e.target.value)}
-                                            placeholder="Enter OTP"
-                                        />
                                         <button
-                                            className="btn btn-primary mt-3 fw-bold"
-                                            onClick={handleOtpSubmit}
-                                            disabled={isOtpVerified}
+                                            className="btn btn-primary mt-3 fw-bold w-100"
+                                            onClick={handleOtpGenerate}
                                         >
-                                            Submit OTP
+                                            Generate OTP
                                         </button>
+
+                                        {/* Show OTP form if OTP is generated */}
+                                        {otpGenerated && !isOtpVerified && (
+                                            <div className="mt-3">
+                                                <label className="form-label">Enter OTP:</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control custom-focus-input"
+                                                    value={otp}
+                                                    onChange={(e) => setOtp(e.target.value)}
+                                                    placeholder="Enter OTP"
+                                                />
+                                                <button
+                                                    className="btn btn-primary mt-3 fw-bold w-100"
+                                                    onClick={handleOtpSubmit}
+                                                    disabled={isOtpVerified}
+                                                >
+                                                    Submit OTP
+                                                </button>
+                                            </div>
+                                        )}
                                     </div>
                                 )}
 
@@ -239,6 +258,7 @@ function Cart() {
                                         Proceed to Online Payment
                                     </button>
                                 )}
+
                                 <button
                                     className="btn btn-outline-secondary w-100 mt-3 text-dark fw-bold"
                                     onClick={() => navigate("/cloth")}

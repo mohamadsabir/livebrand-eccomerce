@@ -16,6 +16,8 @@ import BlogPage from './componet/BlogPage';
 import Post1Page from './componet/Post1Page';
 import Post2Page from './componet/Post2Page';
 import Post3Page from './componet/Post3Page';
+import OrderConfirmation from './componet/OrderConfirmation';
+import Oconfirm from './componet/Oconfirm';
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
             <Route path="/post1" element={<Post1Page />} />
             <Route path="/post2" element={<Post2Page />} />
            <Route path="/post3" element={<Post3Page />} />
+           <Route path="/order-confirmation" element={<OrderConfirmation />} />
+           <Route path="/order--confirmation" element={<Oconfirm />} />
           </Route>
         </Routes>
       </BrowserRouter>

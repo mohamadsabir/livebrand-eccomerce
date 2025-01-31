@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCreditCard,
@@ -14,6 +14,7 @@ import {
 const Payment = () => {
     const { state } = useLocation();
     const cartItems = state?.cartItems || [];
+    const navigate = useNavigate(); // useNavigate hook to navigate to different pages
 
     const calculateTotal = () => {
         return cartItems
@@ -26,7 +27,13 @@ const Payment = () => {
     };
 
     const payment = () => {
-        alert("Payment Successful");
+        // Navigate to Order Confirmation page with cartItems and total price as state
+        navigate("/order--confirmation", {
+            state: {
+                cartItems,
+                totalAmount: calculateTotal()
+            }
+        });
     };
 
     return (
@@ -110,7 +117,7 @@ const Payment = () => {
                         </div>
                     </div>
                 </div>
-                {/* Cart Summary */}
+                {/* Order Summary */}
                 <div className="order-summary-section prism-overlay">
                     <div className="payment-card shadow-box">
                         <div className="payment-card-body">
