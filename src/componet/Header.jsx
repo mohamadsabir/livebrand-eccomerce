@@ -5,7 +5,6 @@ function Header() {
     const [wishlistCount, setWishlistCount] = useState(0);
     const [cartItemCount, setCartItemCount] = useState(0);
 
-    // Update wishlist count on initial load and when storage changes
     useEffect(() => {
         const updateWishlistCount = () => {
             const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -20,7 +19,6 @@ function Header() {
         };
     }, []);
 
-    // Update cart item count on initial load
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
         const itemCount = storedCart.reduce((total, item) => total + item.quantity, 0);
@@ -29,7 +27,7 @@ function Header() {
 
     return (
         <header className="header-container">
-                <div className="header-wrapper">
+            <div className="header-wrapper">
                 {/* Social Media Links */}
                 <div
                     className="d-flex justify-content-center gap-3 py-3 header-social-links"
