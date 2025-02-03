@@ -44,7 +44,7 @@ const Post1Page = () => {
             </div>
 
             {/* Content Section */}
-            <div className="fashion-trends-content">
+            <div className="fashion-trends-content" style={{backgroundColor:'#fdf5f6'}}>
                 {/* Left Content */}
                 <div className="fashion-trends-left">
                     <h2 className="heading-bold">Exploring the Fashion Trends of 2025</h2>

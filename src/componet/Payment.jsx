@@ -14,7 +14,7 @@ import {
 const Payment = () => {
     const { state } = useLocation();
     const cartItems = state?.cartItems || [];
-    const navigate = useNavigate(); // useNavigate hook to navigate to different pages
+    const navigate = useNavigate(); 
 
     const calculateTotal = () => {
         return cartItems
@@ -37,8 +37,8 @@ const Payment = () => {
     };
 
     return (
-        <div className="payment-container mt-5 sparkle-card">
-            <h1 className="payment-title text-center mb-5">
+        <div className="payment-container mt-3 sparkle-card">
+            <h1 className="payment-title text-center mb-3">
                 Payment
             </h1>
             <div className="payment-row">

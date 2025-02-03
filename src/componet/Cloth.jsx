@@ -5,6 +5,7 @@ function Cloth() {
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -415,9 +416,21 @@ function Cloth() {
     return numericPrice - discount;
   };
 
-  const filteredProducts = selectedCategory
-    ? products.filter((product) => product.category === selectedCategory)
-    : products;
+  const filteredProducts = products.filter((product) => {
+    const matchesCategory =
+      !selectedCategory || product.category.toLowerCase().includes(selectedCategory.toLowerCase());
+    const matchesSearchTerm =
+      !searchTerm || product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchTerm.toLowerCase());
+
+    return matchesCategory && matchesSearchTerm;
+  });
+
+
+  const handleSearchCategory = (event) => {
+    setSearchTerm(event.target.value.toLowerCase());
+  };
 
   return (
     <>
@@ -453,8 +466,8 @@ function Cloth() {
         </div>
       </div>
       {/* Category Filter */}
-      <section className="container-fluid py-4" style={{ backgroundColor: 'rgb(255 245 245)' }}>
-        <h3 className="text-center text-dark fw-bold mb-4" style={{ marginTop: '5px' }}>
+      <section className="container-fluid " style={{ backgroundColor: 'white' }}>
+        <h3 className="text-center text-dark fw-bold mb-4 mt-4" style={{ marginTop: '5px' }}>
           <i className="me-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 6h18M3 12h18M3 18h18" />
@@ -462,61 +475,86 @@ function Cloth() {
           </i>
           All Categories :
         </h3>
+        <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 mb-4 p-3 shadow-lg" style={{ backgroundColor: 'white' }}>
+          {/* Search Input with Icon */}
+          <div className="position-relative">
+            <input
+              type="text"
+              className="form-control rounded-3 px-4 py-2 shadow-sm border-0"
+              placeholder="Search categories..."
+              style={{ width: '250px' }}
+              onChange={handleSearchCategory}
+            />
+            <a href="/Cloth" className="position-absolute top-50 end-0 translate-middle-y me-3">
+              <i className="bi bi-search fs-5 text-secondary"></i>
+            </a>
+          </div>
 
-        <div className="d-flex flex-wrap justify-content-center gap-4">
-          <button
-            className={`btn btn-outline-secondary  hover-red fw-bold ${selectedCategory === "" ? "active-category" : ""}`}
-            onClick={() => setSelectedCategory("")}
-          >
-            All
+          {/* Filter Button */}
+          <button className="btn btn-primary d-flex align-items-center gap-2 rounded-3 px-4 shadow-sm">
+            <i className="bi bi-funnel"></i>
+            <span>Filter</span>
           </button>
-          <button
-            className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Casual Wear" ? "active-category" : ""}`}
-            onClick={() => setSelectedCategory("Casual Wear")}
-          >
-            Casual Wear
+
+          {/* View Mode Icons (Square Style) */}
+          <button className="btn btn-outline-dark d-flex align-items-center gap-2 rounded-3 shadow-sm">
+            <i className="bi bi-grid"></i>
           </button>
-          <button
-            className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Pants" ? "active-category" : ""}`}
-            onClick={() => setSelectedCategory("Pants")}
-          >
-            Pants
-          </button>
-          <button
-            className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Clothing" ? "active-category" : ""}`}
-            onClick={() => setSelectedCategory("Clothing")}
-          >
-            Women
-          </button>
-          <button
-            className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Footwear" ? "active-category" : ""}`}
-            onClick={() => setSelectedCategory("Footwear")}
-          >
-            Footwear
-          </button>
-          <button
-            className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Accessories" ? "active-category" : ""}`}
-            onClick={() => setSelectedCategory("Accessories")}
-          >
-            Accessories
-          </button>
-          <button
-            className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Outerwear" ? "active-category" : ""}`}
-            onClick={() => setSelectedCategory("Outerwear")}
-          >
-            Outerwear
-          </button>
-          <button
-            className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Winter Wear" ? "active-category" : ""}`}
-            onClick={() => setSelectedCategory("Winter Wear")}
-          >
-            Winter Wear
-          </button>
+          <div className="d-flex flex-wrap justify-content-center gap-4">
+            <button
+              className={`btn btn-outline-secondary hover-red fw-bold ${selectedCategory === "" ? "active-category" : ""}`}
+              onClick={() => setSelectedCategory("")}
+            >
+              All
+            </button>
+            <button
+              className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Casual Wear" ? "active-category" : ""}`}
+              onClick={() => setSelectedCategory("Casual Wear")}
+            >
+              Casual Wear
+            </button>
+            <button
+              className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Pants" ? "active-category" : ""}`}
+              onClick={() => setSelectedCategory("Pants")}
+            >
+              Pants
+            </button>
+            <button
+              className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Clothing" ? "active-category" : ""}`}
+              onClick={() => setSelectedCategory("Clothing")}
+            >
+              Women
+            </button>
+            <button
+              className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Footwear" ? "active-category" : ""}`}
+              onClick={() => setSelectedCategory("Footwear")}
+            >
+              Footwear
+            </button>
+            <button
+              className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Accessories" ? "active-category" : ""}`}
+              onClick={() => setSelectedCategory("Accessories")}
+            >
+              Accessories
+            </button>
+            <button
+              className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Outerwear" ? "active-category" : ""}`}
+              onClick={() => setSelectedCategory("Outerwear")}
+            >
+              Outerwear
+            </button>
+            <button
+              className={`btn btn-outline-secondary hover-red  ${selectedCategory === "Winter Wear" ? "active-category" : ""}`}
+              onClick={() => setSelectedCategory("Winter Wear")}
+            >
+              Winter Wear
+            </button>
+          </div>
         </div>
       </section>
-      {/* <hr className="border-2"></hr>*/}
-      <section className="container">
-        <div className="container-fluid py-3 bg-light">
+
+      <section className="container ">
+        <div className="container-fluid py-3"  >
           <div className="row g-4 justify-content-center">
             {filteredProducts.map((product, index) => (
               <div className="col-md-4 col-sm-6" key={index}>
@@ -533,7 +571,6 @@ function Cloth() {
                     <p className="card-text text-muted fs-6 text-decoration-line-through fw-bold">
                       {product.price}
                     </p>
-                    {/* Display the discounted price */}
                     <p className="card-text text-success fs-6 fw-bold">
                       <span style={{ color: 'red' }}>30% Off Today : </span>${applyDiscount(product.price).toFixed(2)}
                     </p>
@@ -542,7 +579,6 @@ function Cloth() {
                     </p>
                     <p className="card-text text-secondary">{product.category}</p>
                     <p className="card-text">{product.description}</p>
-                    {/* Size Selector Dropdown */}
                     <div className="relative w-64">
                       <label htmlFor="size-select" className="block text-sm font-medium text-gray-700 mb-2 fw-bold">Select Size</label>
                       <div className="relative">
@@ -575,7 +611,6 @@ function Cloth() {
           </div>
         </div>
       </section>
-      
     </>
   );
 }

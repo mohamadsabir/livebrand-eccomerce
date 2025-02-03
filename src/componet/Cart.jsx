@@ -32,7 +32,6 @@ function Cart() {
         localStorage.setItem("cart", JSON.stringify(updatedCartItems));
     };
     
-
     const handleDecrement = (index) => {
         const updatedCartItems = [...cartItems];
         if (updatedCartItems[index].quantity > 1) {
@@ -98,7 +97,6 @@ function Cart() {
         }
     };
     
-
     const handleCheckout = () => {
         if (paymentMethod === "Online") {
             navigate("/payment", { state: { cartItems, paymentMethod } });

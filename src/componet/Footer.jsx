@@ -14,17 +14,17 @@ function Footer() {
       >
         <div className="container mb-auto">
           <div className="text-center mb-4">
-          <h1
-            style={{
-              fontFamily: "'Montserrat', sans-serif",
-              fontWeight: 'bold',
-              fontSize: '2rem',
-              letterSpacing: '1px',
-              color: 'white',
-            }}
-          >
-            <b>Live<span style={{ color: 'red' }}>B</span>rand</b>
-          </h1>
+            <h1
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 'bold',
+                fontSize: '2rem',
+                letterSpacing: '1px',
+                color: 'white',
+              }}
+            >
+              <b>Live<span style={{ color: 'red' }}>B</span>rand</b>
+            </h1>
             <p
               className="fs-6 mx-auto"
               style={{
@@ -119,6 +119,7 @@ function Footer() {
             </div>
           </div>
         </div>
+
         <center><div className='mt-0'>
 
           <iframe width="100%"

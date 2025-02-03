@@ -6,7 +6,7 @@ const OrderConfirmation = () => {
   const location = useLocation();
   const { totalItems, totalPrice } = location.state || {};
   const handleContinueShopping = () => {
-    navigate("/cloth"); // Navigate to the shopping page
+    navigate("/cloth"); 
   };
 
   return (

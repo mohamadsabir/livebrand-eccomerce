@@ -67,28 +67,12 @@ const UserProfilePage = () => {
       image: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQW2NWtmxlfSKGdlVgm2i8VGeuX75e2ZbOUVZ_eYArwNoQ2eheXWZsIqRxHElvG9uRw2AYX_9khUKBkj-XblpbCU6q-aVnHRshKcGFcNFTifa_f61_iEhZp7eE&usqp=CAE",
     },
     {
-      name: "Graphic Tee",
-      quality: "Soft Cotton Blend",
-      description: "A trendy graphic T-shirt with eye-catching prints, perfect for everyday style.",
-      date: "2025-02-10",
-      price: "$27.99",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE-F3cG4lgaff4vTCqlLjW7UIj0rnboc7vs9gH326Cy8J9-ExmfpIjViIJYQgsJJMkVgY&usqp=CAU",
-    },
-    {
       name: "Slip-On Sneakers",
-      quality: "Easy-to-Wear Design",
-      description: "Casual slip-on sneakers designed for ultimate comfort and ease, perfect for everyday use.",
+      quality: "Easy-to-Wear",
+      description: "Casual slip-on sneakers designed for ultimate comfort and ease.",
       date: "2025-04-10",
       price: "$27.99",
       image: "https://cdn.staticans.com/image/tr:e-sharpen-01,h-1440,w-1920,cm-pad_resize/data/Regal-Shoes/15nov2023/9741033_2.jpg",
-    },
-    {
-      name: "Jogger Pants",
-      quality: "Comfort Fit",
-      description: "Lightweight jogger pants, perfect for lounging or casual outings.",
-      date: "2025-06-10",
-      price: "$27.99",
-      image: "https://i.ebayimg.com/images/g/SFoAAOSwv5NkWiy1/s-l1200.jpg",
     },
   ];
 
@@ -129,18 +113,20 @@ const UserProfilePage = () => {
                     className="d-flex flex-md-row flex-column align-items-center align-items-md-start mb-4 border rounded p-3 shadow-sm"
                     style={{ backgroundColor: "rgb(255 245 245)" }}
                   >
-                    {/* Left-aligned image on larger screens, top on small screens */}
+                    {/* Left-aligned image with name on larger screens, top on small screens */}
                     <div className="d-flex flex-md-row flex-column align-items-center w-100">
-                      <img
-                        src={order.image}
-                        alt={order.name}
-                        className="rounded mb-3 mb-md-0 me-md-4"
-                        style={{ width: "100px", height: "100px", objectFit: "cover" }}
-                      />
+                      <div className="text-center text-md-start w-100 mb-3">
+                        <h6 className="fw-bold mb-3 ms-3">{order.name}</h6>
+                        <img
+                          src={order.image}
+                          alt={order.name}
+                          className="rounded mb-3 mb-md-0"
+                          style={{ width: "150px", height: "150px", objectFit: "cover" }}
+                        />
+                      </div>
                       <div className="text-center text-md-start w-100">
-                        <h6 className="mb-2 fw-bold">{order.name}</h6>
                         <p className="mb-1">
-                          <strong>Quality:</strong> {order.quality}
+                          <strong className="text-muted">Quality:</strong> {order.quality}
                         </p>
                         <p className="mb-1 text-muted">{order.description}</p>
                         <p className="mb-1 text-muted">
@@ -156,7 +142,7 @@ const UserProfilePage = () => {
                     >
                       <button
                         className="btn btn-sm text-light fw-bold"
-                        style={{ backgroundColor: 'red', marginTop: '80px' }}
+                        style={{ backgroundColor: "red", marginTop: "80px" }}
                         onClick={() => handleCancelOrder(index)}
                       >
                         Cancel Order
@@ -180,7 +166,7 @@ const UserProfilePage = () => {
                       className="rounded-circle border"
                       style={{ width: "150px", height: "150px", objectFit: "cover" }}
                     />
-                    
+
                     <button
                       className="btn btn-sm mt-2 text-dark fw-bold"
                       style={{

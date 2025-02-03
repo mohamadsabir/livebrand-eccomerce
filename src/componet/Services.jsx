@@ -114,7 +114,7 @@ function Services() {
         </div>
       </div>
       <section className="container">
-        <div className="customer-testimonials text-center py-5" style={{ backgroundColor: "#f8f9fa" }}>
+        <div className="customer-testimonials text-center mb-5 mt-2" style={{ backgroundColor: "white" }}>
           <h2 className="testimonials-title mb-4" style={{ fontWeight: "bold", fontSize: "2.5rem", color: "#212529" }}>
             What Our Customers Say
           </h2>

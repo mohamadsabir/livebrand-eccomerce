@@ -407,7 +407,8 @@ function Home() {
 
       <section className="py-16 px-10 lg:px-28 bg-gradient-to-r from-indigo-700 via-purple-800 to-pink-700 rounded-3xl shadow-2xl transform hover:scale-105 transition-all duration-400" style={{ marginBottom: '0px' }}>
         <div className="container mb-5">
-          <h2 className="exclusive-heading text-center text-dark tracking-wider leading-tight mb-5 mt-5 text-shadow-lg">
+          <h2 className="exclusive-heading text-center text-dark tracking-wider leading-tight mb-5
+           text-shadow-lg">
             Easy Shopping Experience
           </h2>
           <div className="row gy-4 justify-content-center">

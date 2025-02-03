@@ -55,9 +55,9 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="container-fluid py-5 bg-light">
-        <div className="container">
-          <h2 className="text-center fw-bold mb-5 text-dark ">Our Products</h2>
+      <div className="container-fluid py-2" style={{backgroundColor:'#fdf5f6'}}>
+        <div className="container" >
+          <h2 className="text-center fw-bold mb-4 mt-4 text-dark">Our Products</h2>
           <div className="row text-center">
             <div className="col-md-4 mb-4">
               <div className="p-5 shadow-lg rounded bg-white">
@@ -102,7 +102,7 @@ function About() {
         </div>
       </div>
       <div className="container my-2">
-        <h2 className="text-center fw-bold mb-5 text-dark">Why Choose Us?</h2>
+        <h2 className="text-center fw-bold mb-5 mt-5 text-dark">Why Choose Us?</h2>
         <div className="row">
           <div className="col-md-6 mb-4">
             <div className="p-4 shadow-lg rounded bg-white">
