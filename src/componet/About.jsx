@@ -35,7 +35,8 @@ function About() {
           <p className="fs-4">Redefining fashion with premium T-shirts, jeans, and pants. Stylish, comfortable.</p>
         </div>
       </div>
-      <div className="container my-2">
+      <section className="container">
+      <div className="container my-2 mb-3 mt-3">
         <div className="row align-items-center">
           <div className="col-md-6 mb-4 mt-4">
             <img
@@ -45,17 +46,99 @@ function About() {
             />
           </div>
           <div className="col-md-6">
-            <h2 className="fw-bold mb-3 text-left" style={{ color: 'red' }}>Our Mission</h2>
-            <p className="text-muted fs-5 text-left">
-              Our mission is to provide high-quality, stylish, and affordable T-shirts, jeans, and pants that blend comfort and style. We believe in creating timeless designs that fit seamlessly into your lifestyle.
+            <h2 className="fw-bold mb-2 mt-4 text-left" style={{ color: 'red' }}>Our Mission</h2>
+            <p className="fs-5" style={{ textAlign: "justify" }}>
+              At Livebrand, our mission is to redefine the way you experience everyday fashion. We are dedicated to offering high-quality, stylish, and affordable T-shirts, jeans, and pants that effortlessly blend comfort and style. Whether you’re dressing for a casual outing or a formal occasion, our collection is designed to keep you looking and feeling your best.
             </p>
-            <p className="text-muted fs-5 text-left">
-              With a focus on sustainability and customer satisfaction, we aim to revolutionize the way you shop for casual and formal wear.
+            <p className="fs-5" style={{ textAlign: "justify" }}>
+              Our philosophy revolves around creating timeless designs that seamlessly integrate into your lifestyle. From versatile wardrobe staples to unique pieces that stand out, we ensure that every item we craft meets the highest standards of quality.
             </p>
+
           </div>
         </div>
       </div>
-      <div className="container-fluid py-2" style={{backgroundColor:'#fdf5f6'}}>
+      </section>
+      <section className="container mb-3">
+        <div className="container mt-4">
+          <h2 className="text-center mb-4 fw-bold">Our Features</h2>  {/* Heading for the section */}
+          <div className="row">
+            {/* card 1 */}
+            <div className="col-md-4 mb-4">
+              <div className="card h-100 shadow-sm text-center">
+                <div className="card-body">
+                  <i className="bi bi-patch-check-fill display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <h5 className="card-title">High-Quality Fabrics</h5>
+                  <p className="card-text">
+                    We use premium fabrics to ensure our clothing is comfortable, durable, and stylish.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* card 2 */}
+            <div className="col-md-4 mb-4">
+              <div className="card h-100 shadow-sm text-center">
+                <div className="card-body">
+                  <i className="bi bi-gem display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <h5 className="card-title">Timeless Designs</h5>
+                  <p className="card-text">
+                    Our designs are crafted to remain trendy and versatile for all occasions.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* card 3 */}
+            <div className="col-md-4 mb-4">
+              <div className="card h-100 shadow-sm text-center">
+                <div className="card-body">
+                  <i className="bi bi-recycle display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <h5 className="card-title">Sustainable Practices</h5>
+                  <p className="card-text">
+                    We are committed to eco-friendly production methods for a better tomorrow.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* card 4 */}
+            <div className="col-md-4 mb-4">
+              <div className="card h-100 shadow-sm text-center">
+                <div className="card-body">
+                  <i className="bi bi-people-fill display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <h5 className="card-title">Inclusive Sizing</h5>
+                  <p className="card-text">
+                    We believe fashion is for everyone, offering sizes to suit all body types.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* card 5 */}
+            <div className="col-md-4 mb-4">
+              <div className="card h-100 shadow-sm text-center">
+                <div className="card-body">
+                  <i className="bi bi-headset display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <h5 className="card-title">Exceptional Customer Service</h5>
+                  <p className="card-text">
+                    Your satisfaction is our priority. We're here to help you every step of the way.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* card 6 */}
+            <div className="col-md-4 mb-4">
+              <div className="card h-100 shadow-sm text-center">
+                <div className="card-body">
+                  <i className="bi bi-truck display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <h5 className="card-title">Fast Shipping</h5>
+                  <p className="card-text">
+                    We offer fast and reliable shipping to ensure you receive your order on time.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="container-fluid py-2" style={{ backgroundColor: '#fdf5f6' }}>
         <div className="container" >
           <h2 className="text-center fw-bold mb-4 mt-4 text-dark">Our Products</h2>
           <div className="row text-center">
@@ -106,7 +189,8 @@ function About() {
         <div className="row">
           <div className="col-md-6 mb-4">
             <div className="p-4 shadow-lg rounded bg-white">
-              <h5 className="fw-bold" style={{ color: 'red' }}>Uncompromising Quality</h5>
+              <i className="bi bi-award display-4 mb-3" style={{ color: 'red' }}></i>
+              <h5 className="fw-bold">Uncompromising Quality</h5>
               <p className="text-muted">
                 We ensure every product meets the highest standards of quality, from fabric selection to stitching.
               </p>
@@ -114,7 +198,8 @@ function About() {
           </div>
           <div className="col-md-6 mb-4">
             <div className="p-4 shadow-lg rounded bg-white">
-              <h5 className="fw-bold" style={{ color: 'red' }}>Affordable Pricing</h5>
+              <i className="bi bi-wallet2 display-4 mb-3" style={{ color: 'red' }}></i>
+              <h5 className="fw-bold">Affordable Pricing</h5>
               <p className="text-muted">
                 High-quality fashion doesn't have to break the bank. We offer the best value for your money.
               </p>
@@ -146,7 +231,6 @@ function About() {
           </Link>
         </div>
       </div>
-    
     </section>
   );
 }

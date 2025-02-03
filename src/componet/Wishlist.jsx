@@ -49,7 +49,7 @@ function Wishlist() {
         </div>
       </div>
       
-      <div className="container-fluid py-5 bg-light">
+      <div className="container py-5">
         <div className="row g-4 justify-content-center">
           {wishlistItems.length === 0 ? (
             <p>Wishlist is empty.</p>
