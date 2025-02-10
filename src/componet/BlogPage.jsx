@@ -15,7 +15,7 @@ const BlogPage = () => {
       title: "How to Style Your Outfit for Every Occasion",
       excerpt:
         "Learn the art of styling and how to choose the right outfit for different occasions.",
-      img: "https://lh3.googleusercontent.com/proxy/q5zs6fWZvJMVEe1CdGEQVlBaoT2ns64DQO_khO_IF6IaGF17eOaxE8l2ufy9JBx4DnFcMOmCypzzpx1gRM7IW0wedbSqOtFE-XUaxF3pa8AsE5IYLjOS1KeMdoPkwMlhD_IdnrDL8xuEmoBbVw9oxR0wEZadGMNX4DY"
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3SJNsTKjEL5vekO8Gx_vMFkmj_6_sJ4zIpw&s"
     },
     {
       id: 3,
