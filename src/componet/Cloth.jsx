@@ -427,7 +427,6 @@ function Cloth() {
     return matchesCategory && matchesSearchTerm;
   });
 
-
   const handleSearchCategory = (event) => {
     setSearchTerm(event.target.value.toLowerCase());
   };

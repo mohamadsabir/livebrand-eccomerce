@@ -8,7 +8,7 @@ const Oconfirm = () => {
   const totalAmount = state?.totalAmount || 0;
 
   const handleContinueShopping = () => {
-    navigate("/cloth"); // Navigate to the shopping page
+    navigate("/cloth");
   };
 
   return (

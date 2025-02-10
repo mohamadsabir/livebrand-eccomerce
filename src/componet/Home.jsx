@@ -299,7 +299,6 @@ function Home() {
         </video>
       </div>
 
-
       {/* third section*/}
       <div className="wrapper">
         {/* Heading */}

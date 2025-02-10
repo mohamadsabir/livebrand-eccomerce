@@ -60,13 +60,13 @@ function About() {
       </section>
       <section className="container mb-3">
         <div className="container mt-4">
-          <h2 className="text-center mb-4 fw-bold">Our Features</h2>  {/* Heading for the section */}
+          <h2 className="text-center mb-4 fw-bold">Our Features</h2>  
           <div className="row">
             {/* card 1 */}
             <div className="col-md-4 mb-4">
               <div className="card h-100 shadow-sm text-center">
                 <div className="card-body">
-                  <i className="bi bi-patch-check-fill display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <i className="bi bi-patch-check-fill display-4 mb-3" style={{ color: 'red' }}></i> 
                   <h5 className="card-title">High-Quality Fabrics</h5>
                   <p className="card-text">
                     We use premium fabrics to ensure our clothing is comfortable, durable, and stylish.
@@ -78,7 +78,7 @@ function About() {
             <div className="col-md-4 mb-4">
               <div className="card h-100 shadow-sm text-center">
                 <div className="card-body">
-                  <i className="bi bi-gem display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <i className="bi bi-gem display-4 mb-3" style={{ color: 'red' }}></i> 
                   <h5 className="card-title">Timeless Designs</h5>
                   <p className="card-text">
                     Our designs are crafted to remain trendy and versatile for all occasions.
@@ -90,7 +90,7 @@ function About() {
             <div className="col-md-4 mb-4">
               <div className="card h-100 shadow-sm text-center">
                 <div className="card-body">
-                  <i className="bi bi-recycle display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <i className="bi bi-recycle display-4 mb-3" style={{ color: 'red' }}></i> 
                   <h5 className="card-title">Sustainable Practices</h5>
                   <p className="card-text">
                     We are committed to eco-friendly production methods for a better tomorrow.
@@ -102,7 +102,7 @@ function About() {
             <div className="col-md-4 mb-4">
               <div className="card h-100 shadow-sm text-center">
                 <div className="card-body">
-                  <i className="bi bi-people-fill display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <i className="bi bi-people-fill display-4 mb-3" style={{ color: 'red' }}></i> 
                   <h5 className="card-title">Inclusive Sizing</h5>
                   <p className="card-text">
                     We believe fashion is for everyone, offering sizes to suit all body types.
@@ -114,7 +114,7 @@ function About() {
             <div className="col-md-4 mb-4">
               <div className="card h-100 shadow-sm text-center">
                 <div className="card-body">
-                  <i className="bi bi-headset display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <i className="bi bi-headset display-4 mb-3" style={{ color: 'red' }}></i> 
                   <h5 className="card-title">Exceptional Customer Service</h5>
                   <p className="card-text">
                     Your satisfaction is our priority. We're here to help you every step of the way.
@@ -127,7 +127,7 @@ function About() {
             <div className="col-md-4 mb-4">
               <div className="card h-100 shadow-sm text-center">
                 <div className="card-body">
-                  <i className="bi bi-truck display-4 mb-3" style={{ color: 'red' }}></i> {/* Red icon */}
+                  <i className="bi bi-truck display-4 mb-3" style={{ color: 'red' }}></i> 
                   <h5 className="card-title">Fast Shipping</h5>
                   <p className="card-text">
                     We offer fast and reliable shipping to ensure you receive your order on time.
