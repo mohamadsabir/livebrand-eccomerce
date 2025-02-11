@@ -9,7 +9,7 @@ const Post1Page = () => {
                 className="hero-section text-white text-center d-flex align-items-center justify-content-center"
                 style={{
                     backgroundImage:
-                        "url('https://lh3.googleusercontent.com/proxy/q5zs6fWZvJMVEe1CdGEQVlBaoT2ns64DQO_khO_IF6IaGF17eOaxE8l2ufy9JBx4DnFcMOmCypzzpx1gRM7IW0wedbSqOtFE-XUaxF3pa8AsE5IYLjOS1KeMdoPkwMlhD_IdnrDL8xuEmoBbVw9oxR0wEZadGMNX4DY')",
+                        "url('https://cdnimpuls.com/tiranapost.al/media3/-640-0-67063a68476a4.png')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     height: "40vh",
